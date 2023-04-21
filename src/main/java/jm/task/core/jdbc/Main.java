@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         // реализуйте алгоритм здесь
         userService.createUsersTable();
+/*        userService.createUsersTable();
 
         userService.saveUser("John", "Lennon", (byte) 40);
         userService.saveUser("Paul", "McCartney", (byte) 80);
@@ -22,7 +23,7 @@ public class Main {
         userService.getAllUsers();
 
         userService.cleanUsersTable();
-        userService.dropUsersTable();
+        userService.dropUsersTable();*/
 
 
     }
