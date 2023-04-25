@@ -1,6 +1,8 @@
 package jm.task.core.jdbc.util;
 
-import jm.task.core.jdbc.Main;
+import jm.task.core.jdbc.model.User;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,8 +12,20 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
+    private static SessionFactory sessionFactory;
     private static Connection connection;
 
+    //Hibernate
+    static {
+        Configuration configuration = new Configuration().addAnnotatedClass(User.class);
+        sessionFactory = configuration.buildSessionFactory();
+    }
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    //JDBC
     public static Connection getConnection() {
         try {
             if (connection == null || connection.isClosed()) {
